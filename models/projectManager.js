@@ -5,7 +5,7 @@ const ProjectManager = new Schema({
     lastName: {type:String},
     email: {type:String},
     password: {type:String},
-    role:{type:String,default:'projectManager'}
+    role:{type:String,default:'ProjectManager'}
 },
     {
         timestamps: true, versionKey: false

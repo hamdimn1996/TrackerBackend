@@ -1,4 +1,4 @@
-const Collaborator = require('../models/collaborator');
+const Collaborator = require('../models/utilisateurs');
 
 exports.getAllCollaborators = async (req, res) => {
     try {
@@ -20,7 +20,7 @@ exports.getCollaboratorById = async (req, res) => {
 
 exports.createCollaborator = async (req, res) => {
     try {
-        const collaboratorFound = await Collaborator.findOne({ email: req.body.email });
+        const collaboratorFound = await Collaborator.findOne({ adress: req.body.adress });
         if (collaboratorFound) {
             res.status(400).send({ message: 'Collaborator already exist!' })
         } else {
@@ -35,9 +35,11 @@ exports.createCollaborator = async (req, res) => {
 
 exports.updateCollaborator = async (req, res) => {
     try {
+        req.body.role = req.body.role.value
         await Collaborator.findByIdAndUpdate(req.params.id, req.body)
         res.send({ message: 'Collaborator updated successfully!' });
     } catch (error) {
+        console.log(error);
         res.status(500).send({ message: 'Server error!' })
     }
 }
