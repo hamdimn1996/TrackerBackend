@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 const Ticket = new Schema({
     nomticket: {type:String},
     descriptionticket : {type:String},
-    ownerId: {type:Schema.Types.ObjectId},
+    ownerId: {type:Schema.Types.ObjectId, ref:'admin' || 'ProjectManager' || 'utilisateur'},
     projectid: {type:Schema.Types.ObjectId,ref:'project'},
     status:{type:String,default:'Ouvert'}
 },

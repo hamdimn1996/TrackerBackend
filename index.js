@@ -28,6 +28,9 @@ const projectManagerapi = require('./routes/programManagerapi');
 app.use('/',projectManagerapi)
 const projectapi = require('./routes/projectapi');
 app.use('/',projectapi)
+const ticketapi = require('./routes/ticketapi');
+app.use('/',ticketapi)
+
 
 app.listen(port,()=> {
     console.log('App is listening on port '+port);

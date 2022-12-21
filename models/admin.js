@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const admin = new Schema({
-    
+    nom:String,
+    prenom:String,
     email: {type:String},
     password: {type:String},
 },
